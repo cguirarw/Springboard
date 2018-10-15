@@ -143,8 +143,8 @@ revenue = fn.SUM(Booking.slots * Case(None, (
 ), Facility.membercost))
 
 query = (Facility
-         .select(Facility.name, revenue.alias('revenue'))
-         .join(Booking)
-         .group_by(Facility.name)
-         .having(revenue < 1000)
-         .order_by(SQL('revenue')))
+         select(Facility.name, revenue.alias('revenue'))
+         join(Booking)
+         group_by(Facility.name)
+         having(revenue < 1000)
+         order_by(SQL('revenue')))
